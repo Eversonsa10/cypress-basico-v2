@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: End-to-end tests 🧪
 on: [push]
 jobs:
@@ -10,3 +11,6 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v2
+=======
+
+>>>>>>> a4cf3eac2ffb5f0d5b88cbe531b224e4707d8a0a
