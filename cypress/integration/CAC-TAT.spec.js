@@ -1,6 +1,9 @@
 /// <reference types="Cypress" />
 
 describe('Central de Atendimento ao Cliente TAT', function() {
+
+   const THREE_SECOND_IN_MS = 3000
+
     this.beforeEach(()=> {
         cy.visit('./src/index.html')
     })
@@ -8,6 +11,18 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('verifica o título da aplicação', function() {
         cy.title().should('be.equal','Central de Atendimento ao Cliente TAT')
     })
+
+    it('preenche os campos obrigatorios e envia o formulario', ()=> {
+      cy.clock()
+
+      cy.get('#firstName').type('Everson')
+      cy.get('#lastName').type('Araujo')
+      cy.get('#email').type('everson@email.com')
+      cy.get('#open-text-area').type('Testee')
+      cy.contains('button', 'Enviar').click()
+      cy.get('.success').should('be.visible')
+      cy.tick()
+   })
 
     it('preenche os campos obrigatorios', function() {
        cy.get('#firstName').type('Everson')
